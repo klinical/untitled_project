@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc3jcq8wk6ghc"]
+
+[ext_resource type="Script" path="res://src/aquarium/fish.gd" id="1_uasw2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mqqdv"]
+
+[node name="Fish" type="Area2D"]
+script = ExtResource("1_uasw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mqqdv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+hframes = 4
+vframes = 2
