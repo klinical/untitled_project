@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://5w7blscm8puq" path="res://src/aquarium/fish/fish.tscn" id="1_ijqbh"]
+
+[node name="Aquarium" type="Node2D"]
+
+[node name="Fish" parent="." instance=ExtResource("1_ijqbh")]

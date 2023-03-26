@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc3jcq8wk6ghc"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://src/aquarium/fish.gd" id="1_uasw2"]
+[ext_resource type="Script" path="res://src/aquarium/fish/fish.gd" id="1_uasw2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mqqdv"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://src/aquarium/aquarium.gd" id="1_8c0rc"]
+[ext_resource type="Script" path="res://src/aquarium/fish/aquarium.gd" id="1_8c0rc"]
 [ext_resource type="PackedScene" uid="uid://dvl4lxc8hlrio" path="res://scenes/ui/ui.tscn" id="1_ptamq"]
 [ext_resource type="PackedScene" uid="uid://bc3jcq8wk6ghc" path="res://scenes/aquarium/fish.tscn" id="3_1f5of"]
 
