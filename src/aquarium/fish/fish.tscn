@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://co7025md1nytv"]
+[gd_scene load_steps=7 format=3 uid="uid://co7025md1nytv"]
 
 [ext_resource type="Script" path="res://Fish.gd" id="1_imsma"]
 [ext_resource type="Texture2D" uid="uid://dxfa6jvl4llba" path="res://assets/sprites/redfeesh-sheet.png" id="2_cibl4"]
@@ -10,10 +10,11 @@
 radius = 13.0
 height = 40.0
 
-[sub_resource type="Curve2D" id="Curve2D_83uwu"]
-
 [node name="Fish" type="RigidBody2D"]
+position = Vector2(285, 146)
+gravity_scale = 0.0
 script = ExtResource("1_imsma")
+speed = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_cibl4")
@@ -33,8 +34,3 @@ script = ExtResource("3_10pht")
 
 [node name="Moving" type="Node" parent="StateMachine"]
 script = ExtResource("4_6pjjc")
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_83uwu")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]

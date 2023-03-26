@@ -1,11 +1,19 @@
 extends FishState
 
+var target_location: Vector2
+var point_closeness = Vector2(2, 2)
 
 func enter(msg := {}) -> void:
-	var path_2D: Node = fish.get_node_or_null("Path2D")
-	if path_2D != null:
-		path_2D = path_2D as Path2D
-		var curve: Curve2D = Curve2D.new()
-		
-		curve.add_point(Vector2(msg.x, msg.y))
-		path_2D.curve = curve
+	target_location = Vector2(msg.x, msg.y)
+
+
+func _physics_process(delta):
+	if (fish.position.distance_to(target_location) > 2):
+		var direction = (target_location - fish.position).normalized()
+			
+		fish.position += Vector2(
+			(delta * fish.speed_raw) * direction.x, 
+			(delta * fish.speed_raw / 2) * direction.y
+		)
+	else:
+		fish.state_machine.transition_to("Idle")
