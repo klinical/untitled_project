@@ -13,7 +13,7 @@ func _physics_process(delta):
 			
 		fish.position += Vector2(
 			(delta * fish.speed_raw) * direction.x, 
-			(delta * fish.speed_raw / 2) * direction.y
+			(delta * fish.speed_raw) * direction.y
 		)
 	else:
 		fish.state_machine.transition_to("Idle")
