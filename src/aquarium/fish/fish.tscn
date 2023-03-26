@@ -1,25 +1,55 @@
-[gd_scene load_steps=7 format=3 uid="uid://co7025md1nytv"]
+[gd_scene load_steps=12 format=3 uid="uid://co7025md1nytv"]
 
 [ext_resource type="Script" path="res://Fish.gd" id="1_imsma"]
 [ext_resource type="Texture2D" uid="uid://dxfa6jvl4llba" path="res://assets/sprites/redfeesh-sheet.png" id="2_cibl4"]
 [ext_resource type="Script" path="res://src/state/state_machine.gd" id="2_taxyw"]
 [ext_resource type="Script" path="res://src/aquarium/fish/state/Idle.gd" id="3_10pht"]
 [ext_resource type="Script" path="res://src/aquarium/fish/state/Moving.gd" id="4_6pjjc"]
+[ext_resource type="Texture2D" uid="uid://cb1jdpr1omla" path="res://assets/sprites/Sprite-0001.png" id="6_qssmc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yww34"]
 radius = 13.0
 height = 40.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n5u3"]
+atlas = ExtResource("2_cibl4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hphgy"]
+atlas = ExtResource("6_qssmc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfhms"]
+atlas = ExtResource("6_qssmc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03ayp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n5u3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hphgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfhms")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 2.0
+}]
 
 [node name="Fish" type="RigidBody2D"]
 position = Vector2(285, 146)
 gravity_scale = 0.0
 script = ExtResource("1_imsma")
 speed = 3.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_cibl4")
-hframes = 2
-vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -34,3 +64,7 @@ script = ExtResource("3_10pht")
 
 [node name="Moving" type="Node" parent="StateMachine"]
 script = ExtResource("4_6pjjc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_03ayp")
+animation = &"idle"
